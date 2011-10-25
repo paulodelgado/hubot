@@ -1,1 +1,1 @@
-web: bin/hubot -a campfire -n Bambot
+web: bin/hubot -a campfire -n Qnilb
