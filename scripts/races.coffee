@@ -10,7 +10,8 @@ races = [
   "Belgians",
   "Aztecs",
   "Mexicans",
-  "Colombians"
+  "Colombians",
+  "Wedemeyers"
 ]
 
 module.exports = (robot) ->
