@@ -15,4 +15,4 @@ races = [
 
 module.exports = (robot) ->
   robot.hear /favorite race/i, (msg) ->
-    msg.send msg.random races
+    msg.send "I greatly prefer " + msg.random(races)
