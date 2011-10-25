@@ -15,5 +15,10 @@ races = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /favorite race/i, (msg) ->
+  robot.hear /least favorite race/i, (msg) ->
+    msg.send "I would prefer to avoid an HR moment. Just ask me offline."
+
+  # Shitty attempt at ignoring "least favorite race"
+  robot.hear /[^a][^s][^t] favorite race/i, (msg) ->
     msg.send "I greatly prefer " + msg.random(races)
+
