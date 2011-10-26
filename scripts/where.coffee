@@ -4,7 +4,7 @@ messages = [
   " is probably off taking a dump.",
   " is buying drugs at the marta station.",
   " is crushing a shitter",
-  " is huffing paint in the stairwell"
+  " is huffing paint in the stairwell."
 ]
 module.exports = (robot) ->
   robot.respond /where is ([\w .-]+)\?*$/i, (msg) ->
