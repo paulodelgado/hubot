@@ -3,6 +3,7 @@
 username = "apiuser"
 password = "c0d3c4rt3l"
 apiKey = "x93mb6h8krccu75qzuwnnew5"
+account = "blinqmedia.serverdensity.com"
 
 
 module.exports = (robot) ->
@@ -14,7 +15,7 @@ serverDensity = (msg, url, cb) ->
   authUrl = url.replace(/https?:\/\//, "https://" + username + ":" + password + "@")
 
   msg.http(authUrl)
-    .query("apiKey" : apiKey)
+    .query("apiKey" : apiKey, "account" : account)
     .get() (err, res, body) ->
       parsedResponse = JSON.parse(body)
       cb parsedResponse
