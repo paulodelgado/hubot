@@ -7,6 +7,9 @@ account = "blinqmedia.serverdensity.com"
 
 
 module.exports = (robot) ->
+  robot.respond /sd_test/i, (msg) ->
+    msg.send "server density loading"
+
   robot.respond /server density raw (.*)/i, (msg) ->
     serverDensity msg, msg.match[1], (resp) ->
       msg.send resp
