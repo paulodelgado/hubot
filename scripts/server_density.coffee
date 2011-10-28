@@ -8,13 +8,15 @@ hostname = "api.serverdensity.com"
 apiVersion = "1.3"
 apiBase = "https://" + hostname + "/" + apiVersion + "/"
 
+timeLock = null;
+
 
 module.exports = (robot) ->
   robot.respond /sd device list (.*)/i, (msg) ->
     serverDensityDevices msg, msg.match[1], (resp) ->
       msg.send resp
 
-  robot.respond /sd_stats (.*)/i, (msg) ->
+  robot.respond /sd load (.*)/i, (msg) ->
     serverDensityStats msg, msg.match[1], (resp) ->
       msg.send resp
 
@@ -22,10 +24,11 @@ serverDensityStats = (msg, environment, cb) ->
   serverDensityDevices msg, environment, (devices) ->
     for device in devices
       do (device) ->
-        msg.send "processing device " + device.deviceId
         url = apiBase + "metrics/getLatest"
         serverDensityGet msg, url, { deviceId : device.deviceId }, (resp) ->
-          msg.send resp
+          loadAvg = resp.data.latestMetrics.metrics.system.metrics.loadAvrg.value
+          deviceName = device.name
+          msg.send device.name + " - System Load: " + loadAvg
 
 serverDensityDevices = (msg, environment, cb) ->
   url = apiBase + "devices/list"
@@ -37,15 +40,28 @@ serverDensityGet = (msg, url, extraParams, cb) ->
   authStr = new Buffer(username + ":" + password).toString("base64")
   extraParams["apiKey"] = apiKey
   extraParams["account"] = account
-  setTimeout ( ->
+  spinOnLock msg, () ->
     msg.http(url)
       .headers(Authorization : "Basic " + authStr)
       .query(extraParams)
       .get() (err, res, body) ->
-        msg.send "err: " + err
-        msg.send "response: " + res
-        msg.send "body: " + body
 
         parsedResponse = JSON.parse(body)
         cb parsedResponse
-    ), 5000
+
+spinOnLock = (msg, cb) ->
+  if grabLock(msg)
+    cb()
+  else
+    setTimeout ( ->
+      spinOnLock(msg, cb)
+    ), 1000
+
+grabLock = (msg) ->
+  now = new Date().getTime()
+  if (timeLock == null) || (now - timeLock > 1000)
+    timeLock = now
+    return true
+  else
+    return false
+
