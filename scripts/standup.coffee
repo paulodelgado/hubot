@@ -17,4 +17,4 @@ users = [
 ]
 module.exports = (robot) ->
   robot.respond /standup/i, (msg) ->
-    msg.send 'Standup time! Kick it off ' + messages.shuffle().join('\n')
+    msg.send 'Standup time! Kick it off ' + users.shuffle().join('\n')
