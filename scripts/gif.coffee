@@ -17,3 +17,6 @@ module.exports = (robot) ->
 
   robot.respond /zero downtime/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/1506097/Images/downtime-zero.png'
+
+  robot.respond /oh snap/i, (msg) ->
+      msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/oh_snap.gif'
