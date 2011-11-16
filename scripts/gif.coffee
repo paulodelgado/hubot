@@ -26,3 +26,6 @@ module.exports = (robot) ->
 
   robot.hear /squeeze/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/sq.gif'
+
+  robot.hear /oh crap/i, (msg) ->
+      msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/chubby.gif'
