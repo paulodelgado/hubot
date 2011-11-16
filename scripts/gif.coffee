@@ -1,7 +1,7 @@
 # gifs!
 module.exports = (robot) ->
-  robot.hear /highjump[^_]/i, (msg) ->
-      msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/highjump_toilet.gif'
+  robot.hear /highjump/i, (msg) ->
+      msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/high_toilet.gif'
 
   robot.hear /clap clap/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/145070/animated_gifs/clapping.gif'
