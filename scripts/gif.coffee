@@ -34,4 +34,4 @@ module.exports = (robot) ->
       msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/hot_dog_balln.gif'
 
   robot.hear /processing/i, (msg) ->
-      msg.send 'http://dl.dropbox.com/u/45751834/processing.gif'
+      msg.send 'http://dl.dropbox.com/u/45751834/process.gif'
