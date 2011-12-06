@@ -13,7 +13,8 @@ users = [
   'Daniel Upton',
   'Ryan Felton',
   'Luis Caballero',
-  'Charles Lumpkin'
+  'Charles Lumpkin',
+  'Hank Beaver'
 ]
 module.exports = (robot) ->
   robot.respond /standup/i, (msg) ->
