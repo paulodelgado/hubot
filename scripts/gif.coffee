@@ -6,7 +6,7 @@ module.exports = (robot) ->
   robot.hear /clap clap/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/145070/animated_gifs/clapping.gif'
 
-  robot.hear /deploy(ing)?/i, (msg) ->
+  robot.respond /deploy(ing)?/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/t2_nuke.gif'
 
   robot.hear /downtime max/i, (msg) ->
