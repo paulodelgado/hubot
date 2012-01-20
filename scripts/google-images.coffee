@@ -4,12 +4,17 @@
 #                       returns a random top result.
 # animate me <query>  - The same thing as `image me`, except adds a few
 #                       parameters to try to return an animated GIF instead.
+# stock <query>       - The same as 'image me' but tries to get stock imagery
 # mustache me <url>   - Adds a mustache to the specified URL.
 # mustache me <query> - Searches Google Images for the specified query and
 #                       mustaches it.
 module.exports = (robot) ->
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
     imageMe msg, msg.match[3], (url) ->
+      msg.send url
+
+  robot.respond /(stock)( me)? (.*)/i, (msg) ->
+    imageMe msg, "stock #{msg.match[3]}", (url) ->
       msg.send url
 
   robot.respond /animate me (.*)/i, (msg) ->
