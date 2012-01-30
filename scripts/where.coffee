@@ -7,7 +7,7 @@ messages = [
   " is huffing paint in the stairwell.",
   " is taking pictures of feet in the bathroom.",
   " is printing off resumes in the break room.",
-  " is spraypainting goatse on the bathroom wall.",
+  " is carving a goatse sculpture.",
   " is buying a few more iPads for Paulo."
 ]
 module.exports = (robot) ->
