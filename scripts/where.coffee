@@ -8,7 +8,7 @@ messages = [
   " is taking pictures of feet in the bathroom.",
   " is printing off resumes in the break room.",
   " is spraypainting goatse on the bathroom wall.",
-  " is buying another few iPads for Paulo."
+  " is buying a few more iPads for Paulo."
 ]
 module.exports = (robot) ->
   robot.respond /where is ([\w .-]+)\?*$/i, (msg) ->
