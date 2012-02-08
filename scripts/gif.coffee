@@ -35,3 +35,6 @@ module.exports = (robot) ->
 
   robot.hear /processing/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/145070/animated_gifs/process_cat.gif'
+
+  robot.hear /cache/i, (msg) ->
+      msg.send 'http://dl.dropbox.com/u/45751834/softdev.gif'
