@@ -5,7 +5,7 @@ password = "c0d3c4rt3l"
 apiKey = "x93mb6h8krccu75qzuwnnew5"
 account = "blinqmedia.serverdensity.com"
 hostname = "api.serverdensity.com"
-apiVersion = "1.3"
+apiVersion = "1.4"
 apiBase = "https://" + hostname + "/" + apiVersion + "/"
 
 timeLock = null;
