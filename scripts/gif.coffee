@@ -39,3 +39,6 @@ module.exports = (robot) ->
 
   robot.hear /cache/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/45751834/softdev.gif'
+
+  robot.hear /clearcampfire/i, (msg) ->
+      msg.send 'http://dl.dropbox.com/u/55386553/clear_campfire.png'
