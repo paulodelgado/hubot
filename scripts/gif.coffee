@@ -1,4 +1,5 @@
 # gifs!
+
 module.exports = (robot) ->
   robot.hear /highjump/i, (msg) ->
       msg.send 'http://dl.dropbox.com/u/1506097/Images/gifs/high_toilet.gif'
